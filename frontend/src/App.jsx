@@ -1,11 +1,16 @@
-import SideBar from "./components/SideBar"
+import ListarPlacas from "./pages/ListarPlacas"
+import { BrowserRouter, Route, Routes } from 'react-router' 
 
 function App() {
 
   return (
-    <>
-      <SideBar/>
-    </>
+
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<ListarPlacas />}></Route>
+      </Routes>
+    </BrowserRouter>
+
   )
 }
 
