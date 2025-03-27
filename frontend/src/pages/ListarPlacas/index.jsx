@@ -36,7 +36,7 @@ const ListarPlacas = () => {
         <div className="flex flex-wrap gap-6">
           {placas.length > 0 ? (
             placas.map((placa) => (
-              <CardPlaca key={placa._id} placa={placa} onDelete={getPlacas} />
+              <CardPlaca key={placa._id} placa={placa} onDelete={getPlacas} onUpdate={getPlacas}/>
             ))
           ) : (
             <p className="text-gray-500">

@@ -42,6 +42,7 @@ const ListarComponentes = () => {
                 key={componente._id}
                 componente={componente}
                 onDelete={getComponentes}
+                onUpdate={getComponentes}
               />
             ))
           ) : (
