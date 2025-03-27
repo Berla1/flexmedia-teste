@@ -20,7 +20,7 @@ const CardPlaca = ({ placa, onDelete }) => {
   return (
     <>
       <div
-        className="relative flex flex-col p-6 shadow-lg bg-amber-50 h-fit rounded-2xl"
+        className="relative flex flex-col p-6 shadow-lg border h-fit rounded-2xl border-green-600"
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
       >
@@ -30,16 +30,20 @@ const CardPlaca = ({ placa, onDelete }) => {
         <p className="mt-3">
           {placa.description}
         </p>
-        <h2 className="font-medium mt-3">Componentes associados: </h2>
-        <ul>
-          {placa.components.map((component) => (
-            <li key={component._id} className="ml-5">
-              {component.name}
-            </li>
-          ))}
-        </ul>
+        {placa.components.length > 0 && (
+          <>
+            <h2 className="font-medium mt-3">Componentes associados: </h2>
+            <ul>
+              {placa.components.map((component) => (
+                <li key={component._id} className="ml-5">
+                  {component.name}
+                </li>
+              ))}
+            </ul>
+          </>
+        )}
         {hovered && (
-          <button onClick={handleDelete} className="absolute top-0 right-0 transition-all duration-300 cursor-pointer">
+          <button onClick={handleDelete} className="absolute right-2 top-1 transition-all duration-300 cursor-pointer">
             <FaWindowClose
               size={25}
               className="text-red-500 hover:text-red-700"
