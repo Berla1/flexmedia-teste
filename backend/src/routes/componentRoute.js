@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const { createComponent } = require('../controllers/componentController');
+const { postComponent, getComponent } = require('../controllers/componentController');
 
-router.post('/', createComponent);
+router.get('/', getComponent)
+router.post('/', postComponent);
 
 module.exports = router;

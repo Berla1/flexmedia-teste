@@ -9,7 +9,7 @@ exports.getAllBoards = async (req, res) => {
   }
 };
 
-exports.createBoard = async (req, res) => {
+exports.postBoard = async (req, res) => {
   try {
     const board = new Board(req.body);
     await board.save();

@@ -57,9 +57,13 @@ const Component = new mongoose.Schema({
       "Sensor de Inclinação SW-520D",
     ],
   },
-  type: {type: String, required: true },
-  specifications: { type: String, required: true },
-  board: { type: mongoose.Schema.ObjectId, ref: 'Board'}
+  type: { type: String, required: true, enum: ['Resistor', 'Capacitor', 'Microcontrolador'] },
+  specifications: {
+    type: String,
+    required: true,
+    enum: ["Resistência", "Capacitância", "Modelo"],
+  },
+  board: { type: mongoose.Schema.ObjectId, ref: "Board" },
 });
 
-module.exports = mongoose.model('Component', Component);
+module.exports = mongoose.model("Component", Component);
