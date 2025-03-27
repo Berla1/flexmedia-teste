@@ -7,7 +7,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Conexão com o Banco e Inicialização
+// Conexão com o banco e inicialização
 const startServer = async () => {
   const isConnected = await connectDB();
   

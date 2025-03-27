@@ -1,8 +1,15 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const { postComponent, getComponent } = require('../controllers/componentController');
+const {
+  postComponent,
+  getComponent,
+  updateComponent,
+  deleteComponent,
+} = require("../controllers/componentController");
 
-router.get('/', getComponent)
-router.post('/', postComponent);
+router.get("/", getComponent);
+router.post("/", postComponent);
+router.put("/:id", updateComponent);
+router.delete("/:id", deleteComponent);
 
 module.exports = router;
