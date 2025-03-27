@@ -83,7 +83,7 @@ const FormCadastroPlaca = ({ onBoardAdded }) => {
 
         <div>
           <label className="block text-sm font-medium mb-1">
-            Descrição
+            Descrição <span className="text-red-700">*</span>
           </label>
           <textarea
             name="description"
