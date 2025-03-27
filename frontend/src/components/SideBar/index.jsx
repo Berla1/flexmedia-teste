@@ -1,33 +1,43 @@
+import { Link } from "react-router-dom";
+import { FaListUl, FaCashRegister } from "react-icons/fa6";
 import Logo from "../../assets/flexmedia-logo.png";
-import { FaListUl } from "react-icons/fa6";
-import { FaCashRegister } from "react-icons/fa6";
-import { Link } from "react-router";
 
 const SideBar = () => {
   return (
-    <>
-      <aside className="flex flex-col h-screen w-80 bg-green-200 p-4">
-        <div>
-          <img src={Logo} alt="Logo flexmedia" />
-        </div>
+    <div className="flex flex-col w-64 h-min-screen bg-green-100 p-4 border-r border-gray-200">
+      <div className="mb-8 p-2">
+        <img
+          src={Logo}
+          alt="Logo FlexMedia"
+        />
+      </div>
+      <nav className="flex-1">
+        <ul className="space-y-2">
+          <li>
+            <Link
+              to="/"
+              className="flex items-center gap-3 p-3 rounded-lg hover:bg-green-200 transition-colors"
+            >
+              <FaListUl className="text-green-600" />
+              <span>Listar Placas</span>
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/cadastrar-placas"
+              className="flex items-center gap-3 p-3 rounded-lg hover:bg-green-200 transition-colors"
+            >
+              <FaCashRegister className="text-green-600" />
+              <span>Cadastrar Placa</span>
+            </Link>
+          </li>
+        </ul>
+      </nav>
 
-        <div className="mt-10">
-          <ul className="flex flex-col gap-5">
-            <Link to={"/"}>
-              <li className="flex items-center gap-3 cursor-pointer">
-                <FaListUl /> Listar placas
-              </li>
-            </Link>
-            <Link to={"/cadastrar-placas"}>
-              <li className="flex items-center gap-3 cursor-pointer">
-                <FaCashRegister />
-                Cadastrar placa
-              </li>
-            </Link>
-          </ul>
-        </div>
-      </aside>
-    </>
+      <div className="mt-auto pt-4 text-center text-sm text-gray-500">
+        © {new Date().getFullYear()} FlexMedia
+      </div>
+    </div>
   );
 };
 

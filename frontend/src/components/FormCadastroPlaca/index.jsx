@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import axios from 'axios';
 
-const BoardForm = ({ onBoardAdded }) => {
+const FormCadastroPlaca = ({ onBoardAdded }) => {
   const [board, setBoard] = useState({
     name: '',
     description: ''
@@ -9,7 +9,6 @@ const BoardForm = ({ onBoardAdded }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState('');
 
-  // Opções das placas
   const boardOptions = [
     'NanoBoard X1',
     'FlexControl 2000',
@@ -52,7 +51,7 @@ const BoardForm = ({ onBoardAdded }) => {
   };
 
   return (
-    <div className="w-full p-6 rounded-lg shadow-md">
+    <div className="w-full p-6">
       <h2 className="text-xl font-semibold mb-4">Cadastrar Nova Placa</h2>
       
       {error && (
@@ -61,16 +60,16 @@ const BoardForm = ({ onBoardAdded }) => {
         </div>
       )}
       
-      <form onSubmit={handleSubmit}>
-        <div className="mb-4">
-          <label className="text-sm font-medium mb-1">
-            Modelo da Placa <span className='text-red-700'>*</span>
+      <form onSubmit={handleSubmit} className="space-y-4">
+        <div>
+          <label className="block text-sm font-medium mb-1">
+            Modelo da Placa <span className="text-red-700">*</span>
           </label>
           <select
             name="name"
             value={board.name}
             onChange={handleChange}
-            className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outiline-none focus:ring-2 focus:ring-gray-700 focus:border-gray-700"
+            className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-gray-700 focus:border-gray-700"
             required
           >
             <option value="">Selecione um modelo</option>
@@ -82,25 +81,24 @@ const BoardForm = ({ onBoardAdded }) => {
           </select>
         </div>
 
-        <div className="mb-4">
+        <div>
           <label className="block text-sm font-medium mb-1">
-            Descrição <span className='text-red-700'>*</span>
+            Descrição
           </label>
           <textarea
             name="description"
             value={board.description}
             onChange={handleChange}
-            rows="8"
+            rows="4"
             className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-gray-700 focus:border-gray-700"
             placeholder="Digite uma descrição para a placa"
-            required
           />
         </div>
 
         <button
           type="submit"
           disabled={isSubmitting}
-          className={`w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white ${isSubmitting ? 'bg-gray-400' : 'bg-green-600 hover:bg-green-700'} focus:ring-green-500`}
+          className={`w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white ${isSubmitting ? 'bg-gray-400' : 'bg-green-600 hover:bg-green-700'} focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500`}
         >
           {isSubmitting ? (
             <>
@@ -117,4 +115,4 @@ const BoardForm = ({ onBoardAdded }) => {
   );
 };
 
-export default BoardForm;
+export default FormCadastroPlaca;
