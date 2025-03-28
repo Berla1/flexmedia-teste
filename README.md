@@ -31,14 +31,14 @@ PORT=5000
 ```bash
 cd backend
 npm install
-npm start
+npm run dev
 ```
 
 ## Rodando o frontend
 ```bash
 cd frontend
 npm install
-npm start
+npm run dev
 ```
 
 ## Estrutura do projeto 
